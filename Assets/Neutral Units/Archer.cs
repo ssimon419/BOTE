@@ -7,8 +7,8 @@ public class Archer : Card
     void Start()
     {
         this.name = "Archer";
-        this.attack = 1;
-        this.health = 1;
+        this.attack = 3;
+        this.health = 2;
         this.manaCost = 2;
     }
 }

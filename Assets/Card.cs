@@ -9,9 +9,7 @@ public class Card : MonoBehaviour
     protected int health;
     protected int manaCost;
     protected bool taunt = false;
-    protected bool onBoard = false;
-
-
+   
     // When the card is selected to attack
     public void Attack(Card target)
     {
@@ -32,14 +30,16 @@ public class Card : MonoBehaviour
         this.health -= addValue;
     }
 
+    // Changes attack value
     public void ChangeAttack(int addValue)
     {
         this.attack -= addValue;
     }
 
-    public void PlaceOnBoard()
+    // Destroys card when this method is called
+    public void removeCard()
     {
-        this.onBoard = true;
+        Destroy(gameObject);
     }
 
     // Accessor Functions

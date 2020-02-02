@@ -7,8 +7,8 @@ public class Knight : Card
     void Start()
     {
         this.name = "Knight";
-        this.attack = 4;
-        this.health = 3;
+        this.attack = 5;
+        this.health = 8;
         this.manaCost = 2;
         this.taunt = true;
     }

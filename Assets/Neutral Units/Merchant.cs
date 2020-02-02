@@ -8,7 +8,7 @@ public class Merchant : Card
     {
         this.name = "Merchant";
         this.attack = 1;
-        this.health = 1;
+        this.health = 2;
         this.manaCost = 1;
     }
 

@@ -7,8 +7,8 @@ public class Executioner : Card
     void Start()
     {
         this.name = "Executioner";
-        this.attack = 1;
-        this.health = 1;
+        this.attack = 6;
+        this.health = 3;
         this.manaCost = 5;
     }
 }

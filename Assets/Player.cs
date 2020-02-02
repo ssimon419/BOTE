@@ -5,13 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public string playerName;
-    int maxMana = 5;
-    int mana = 5;
-    
-    int health = 30;
 
-    Card[] playerHand = new Card[7];
-    Card[] playerBoard = new Card[5];
+    private int maxMana = 5;
+    private int mana = 5;
+    private int health = 30;
+    private Hand hand = new Hand(7);
 
     // Mutators
     public void ManaAdd(int addValue)
@@ -25,7 +23,6 @@ public class Player : MonoBehaviour
     }
 
     // Accessors
-
     public int GetHealth()
     {
         return health;
@@ -36,28 +33,16 @@ public class Player : MonoBehaviour
         return mana;
     }
 
-    public void AddCardtoHand(Card card)
+    public Hand GetHand()
     {
-        int i = 0;
-        while (i < playerHand.Length - 1)
-        {
-            if (playerHand[i] == null)
-            {
-                playerHand[i] = card;
-            }
-            i++;
-        }
+        return hand;
     }
 
-    public void RemoveFromHand(Card card)
+    // Functions
+    public void PlayCard(Card card)
     {
-        maxMana -= card.GetManaCost();
-        for (int i = 0; i < (playerHand.Length - 1); i++)
-        {
-            if (playerHand[i].Equals(card))
-            {
-                playerHand[i] = null;
-            }
-        }
+        mana -= card.GetManaCost();
+        hand.getCardList().Remove(card);
     }
+
 }

@@ -7,8 +7,8 @@ public class Mage : Card
     void Start()
     {
         this.name = "Mage";
-        this.attack = 5;
-        this.health = 7;
+        this.attack = 4;
+        this.health = 2;
         this.manaCost = 3;
         this.taunt = false;
     }
