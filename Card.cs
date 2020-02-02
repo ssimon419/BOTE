@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class Card : MonoBehaviour
 {
     protected int attack;
     protected int health;
     protected int manaCost;
-    protected bool taunt = false;
+    protected bool shield = false;
 
     static protected Board board = GameObject.FindGameObjectWithTag("board").GetComponent<Board>();
     static protected Game game = GameObject.FindGameObjectWithTag("game").GetComponent<Game>();
@@ -13,8 +15,33 @@ public class Card : MonoBehaviour
     // When the card is selected to attack
     public void Attack(Card target)
     {
+        bool tauntExists = false;
+        List<Card> opponentList = board.GetOpponentCardsOnBoard(gameObject.tag).getCardList();
 
-        // If target is not on same side, 
+
+
+        for (int handIndex = 0; handIndex < opponentList.Count - 1;  handIndex++)
+        {
+            if (opponentList[handIndex].shield == true)
+            {
+                tauntExists = true;
+            }
+        }
+
+        if (tauntExists)
+        {
+            // If target is not on the same side and has taunt
+            if (!(gameObject.CompareTag(target.tag)) && target.shield == true)
+            {
+                // Changes health of attacking card
+                Damage(target.GetAttack());
+                // Changes health of the defending card
+                target.Damage(GetAttack());
+            }
+            // Otherwise, nothing happens (cant attack creatues w/o taunt if there is a taunt creature on the field)
+        }
+
+        // If target is not on same side, and does taunt does not exist
         if (!(gameObject.CompareTag(target.tag)))
         {   
             // Changes health of attacking card
@@ -23,6 +50,7 @@ public class Card : MonoBehaviour
             target.Damage(GetAttack());
         }
 
+        
       
     }
 

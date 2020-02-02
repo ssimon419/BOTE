@@ -14,7 +14,7 @@ public class Executioner : Card
 
     public override void Special()
     {
-        Hand onBoard = board.GetOppponentCardsOnBoard(gameObject.tag);
+        Hand onBoard = board.GetOpponentCardsOnBoard(gameObject.tag);
 
         List<Card> cardList = onBoard.getCardList();
 

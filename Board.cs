@@ -25,7 +25,7 @@ public class Board : MonoBehaviour
     }
 
     // Returns the side of the board of the opponent of the tag passed
-    public Hand GetOppponentCardsOnBoard(string tag)
+    public Hand GetOpponentCardsOnBoard(string tag)
     {
         if(tag == "playerOne")
         {
