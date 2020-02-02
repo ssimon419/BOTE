@@ -24,6 +24,22 @@ public class Board : MonoBehaviour
         else return null;
     }
 
+    // Returns the side of the board of the opponent of the tag passed
+    public Hand GetOpponentCardsOnBoard(string tag)
+    {
+        if(tag == "playerOne")
+        {
+            return playerTwoCardsOnBoard;
+        }
+
+        else if (tag == "playerTwo")
+        {
+            return playerOneCardsOnBoard;
+        }
+
+        else return null;
+    }
+
     // Adds cards specific to each player's side of the board
     public void AddCardToBoard(Card card)
     {

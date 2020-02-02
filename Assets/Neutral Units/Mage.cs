@@ -10,6 +10,18 @@ public class Mage : Card
         this.attack = 4;
         this.health = 2;
         this.manaCost = 3;
-        this.taunt = false;
+        this.shield = false;
+    }
+
+    public override void Special()
+    {
+        Hand onBoard = board.GetOpponentCardsOnBoard(gameObject.tag);
+
+        List<Card> cardList = onBoard.getCardList();
+
+        for (int i = 0; i < cardList.Count; i++)
+        {
+            cardList[i].Damage(2);
+        }
     }
 }

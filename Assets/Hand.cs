@@ -27,12 +27,19 @@ public class Hand : MonoBehaviour
         cardsInList.Add(card);
     }
 
+    // Removes a card from the list
+    public void RemoveCard(Card card)
+    {
+        cardsInList.Remove(card);
+    }
+
     // Accessors
     public List<Card> getCardList()
     {
         return cardsInList;
     }
 
+    // Gets capactiy of the hand
     public int GetCapacity()
     {
         return maxCapacity;

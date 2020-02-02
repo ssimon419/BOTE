@@ -10,7 +10,7 @@ public class Knight : Card
         this.attack = 5;
         this.health = 8;
         this.manaCost = 2;
-        this.taunt = true;
+        this.shield = true;
     }
 
 }

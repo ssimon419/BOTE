@@ -12,9 +12,13 @@ public class Merchant : Card
         this.manaCost = 1;
     }
 
+    public override void Special()
+    {
+        addMana(game.GetPlayer(gameObject.tag));
+    }
     void addMana(Player player)
     {
-        player.ManaAdd(2);
+        player.AddMana(2);
     }
 }
 

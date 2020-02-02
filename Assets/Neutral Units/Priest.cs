@@ -11,4 +11,9 @@ public class Priest : Card
         this.health = 4;
         this.manaCost = 4;
     }
+
+    public override void Special()
+    {
+        GameObject.Find(gameObject.tag).GetComponent<Player>().AddHealth(5);
+    }
 }

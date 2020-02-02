@@ -12,14 +12,19 @@ public class Player : MonoBehaviour
     private Hand hand = new Hand(7);
 
     // Mutators
-    public void ManaAdd(int addValue)
+    public void AddMana(int addValue)
     {
         maxMana += addValue;
     }
 
-    public void HealthAdd(int addValue)
+    public void AddHealth(int addValue)
     {
-        health -= addValue;
+        health += addValue;
+    }
+
+    public void Damage(int value)
+    {
+        health -= value;
     }
 
     // Accessors
@@ -39,10 +44,24 @@ public class Player : MonoBehaviour
     }
 
     // Functions
+    // Places card on board, corresponding with the player
     public void PlayCard(Card card)
     {
+        // Mana gets lowered
         mana -= card.GetManaCost();
+        // Triggers card special ability when played
+        card.Special();
+
         hand.getCardList().Remove(card);
+
+        Board board = GameObject.FindGameObjectWithTag("board").GetComponent<Board>();
+
+        board.AddCardToBoard(card);
+    }
+
+    public void manaRefill()
+    {
+        this.mana = maxMana;
     }
 
 }

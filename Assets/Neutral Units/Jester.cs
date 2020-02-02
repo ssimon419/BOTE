@@ -11,4 +11,9 @@ public class Jester : Card
         this.health = 7;
         this.manaCost = 4;
     }
+
+    public override void Special()
+    {
+        // TO DO: Draw Random Card
+    }
 }

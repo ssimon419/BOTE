@@ -11,4 +11,15 @@ public class Executioner : Card
         this.health = 3;
         this.manaCost = 5;
     }
+
+    public override void Special()
+    {
+        Hand onBoard = board.GetOpponentCardsOnBoard(gameObject.tag);
+
+        List<Card> cardList = onBoard.getCardList();
+
+        int rng = Random.Range(0, cardList.Count);
+
+        cardList[rng].Damage(50);
+    }
 }

@@ -12,6 +12,11 @@ public class Regent : Card
         this.manaCost = 5;
     }
 
+    
+    public override void Special()
+    {
+        addCounters(board);
+    }
     // Method passes the board of the game in; place all cards being played under the board object?
     void addCounters(Board board)
     {
@@ -21,8 +26,8 @@ public class Regent : Card
             for (int boardIndex = 0; boardIndex < board.GetCardsOnBoard(tag).getCardList().Count; boardIndex++)
             {
                 Card target = board.GetCardsOnBoard(tag).getCardList()[boardIndex];
-                target.ChangeHealth(-2);
-                target.ChangeAttack(-2);
+                target.AddHealth(2);
+                target.AddAttack(2);
             }
         }
 
@@ -31,8 +36,8 @@ public class Regent : Card
             for (int boardIndex = 0; boardIndex < board.GetCardsOnBoard(tag).getCardList().Count; boardIndex++)
             {
                 Card target = board.GetCardsOnBoard(tag).getCardList()[boardIndex];
-                target.ChangeHealth(-2);
-                target.ChangeAttack(-2);
+                target.AddHealth(2);
+                target.AddAttack(2);
             }
         }
 
