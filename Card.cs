@@ -18,8 +18,6 @@ public class Card : MonoBehaviour
         bool tauntExists = false;
         List<Card> opponentList = board.GetOpponentCardsOnBoard(gameObject.tag).getCardList();
 
-
-
         for (int handIndex = 0; handIndex < opponentList.Count - 1;  handIndex++)
         {
             if (opponentList[handIndex].shield == true)
@@ -49,8 +47,6 @@ public class Card : MonoBehaviour
             // Changes health of the defending card
             target.Damage(GetAttack());
         }
-
-        
       
     }
 
@@ -70,6 +66,7 @@ public class Card : MonoBehaviour
         this.attack += value;
     }
 
+    // If damage is caused to the card
     public void Damage(int value)
     {
         this.health -= value;

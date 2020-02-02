@@ -44,11 +44,24 @@ public class Player : MonoBehaviour
     }
 
     // Functions
+    // Places card on board, corresponding with the player
     public void PlayCard(Card card)
     {
+        // Mana gets lowered
         mana -= card.GetManaCost();
+        // Triggers card special ability when played
         card.Special();
+
         hand.getCardList().Remove(card);
+
+        Board board = GameObject.FindGameObjectWithTag("board").GetComponent<Board>();
+
+        board.AddCardToBoard(card);
+    }
+
+    public void manaRefill()
+    {
+        this.mana = maxMana;
     }
 
 }
